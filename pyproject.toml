@@ -1,0 +1,33 @@
+[project]
+name = "dental_vision"
+version = "2.1.1"
+description = "DentalVision Pro - Dental Practice Management System for Elrazi University Clinic"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+
+authors = [
+    { name = "Elrazi University Clinic", email = "admin@elrazi.edu" }
+]
+
+dependencies = [
+    "python-dateutil",
+    "phonenumbers",
+    "Pillow",
+    "cryptography",
+]
+
+[project.urls]
+Repository = "https://github.com/wfmelamin1/dental_vision"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dental_vision*"]
+
+[tool.bench.frappe]
+frappe_requires = ">=15.0.0,<17.0.0"
+auto_install = false

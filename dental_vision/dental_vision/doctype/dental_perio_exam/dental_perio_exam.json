@@ -1,0 +1,36 @@
+{
+  "name": "Dental Perio Exam",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "format:PERIO-{YYYY}-{#####}",
+  "is_submittable": 1,
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "patient", "fieldtype": "Link", "label": "Patient", "options": "Patient", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "patient_name", "fieldtype": "Data", "label": "Patient Name", "fetch_from": "patient.full_name", "read_only": 1},
+    {"fieldname": "exam_date", "fieldtype": "Date", "label": "Exam Date", "reqd": 1, "default": "Today", "in_list_view": 1},
+    {"fieldname": "provider", "fieldtype": "Link", "label": "Provider", "options": "Dental Provider", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "bop_percent", "fieldtype": "Float", "label": "BOP % (Bleeding Score)", "read_only": 1, "in_list_view": 1,
+      "description": "Auto-calculated: (bleeding sites / total sites) × 100"},
+    {"fieldname": "plaque_percent", "fieldtype": "Float", "label": "Plaque Score %", "read_only": 1},
+    {"fieldname": "total_sites", "fieldtype": "Int", "label": "Total Sites", "read_only": 1},
+    {"fieldname": "bleeding_sites", "fieldtype": "Int", "label": "Bleeding Sites", "read_only": 1},
+    {"fieldname": "summary_section", "fieldtype": "Section Break", "label": "Clinical Summary"},
+    {"fieldname": "visit_notes", "fieldtype": "Text Editor", "label": "Visit Notes / Assessment"},
+    {"fieldname": "gingival_description", "fieldtype": "Select", "label": "Gingival Status",
+      "options": "\nHealthy\nGingivitis — Localised\nGingivitis — Generalised\nEarly Periodontitis\nModerate Periodontitis\nSevere Periodontitis"},
+    {"fieldname": "furcation_note", "fieldtype": "Small Text", "label": "Furcation Notes"},
+    {"fieldname": "measurements_section", "fieldtype": "Section Break", "label": "Periodontal Measurements"},
+    {"fieldname": "measurements", "fieldtype": "Table", "label": "Perio Measurements",
+      "options": "Dental Perio Measurement",
+      "description": "6 sites per tooth (MB-B-DB facial, ML-L-DL lingual). Colour coding: ≤3mm=green, 4-5mm=yellow, ≥6mm=red"}
+  ],
+  "permissions": [
+    {"role": "Dentist", "read": 1, "write": 1, "create": 1, "submit": 1},
+    {"role": "Dental Hygienist", "read": 1, "write": 1, "create": 1, "submit": 1},
+    {"role": "Dental Receptionist", "read": 1},
+    {"role": "Dental Office Manager", "read": 1, "write": 1, "create": 1, "submit": 1, "cancel": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "submit": 1, "cancel": 1, "delete": 1}
+  ]
+}

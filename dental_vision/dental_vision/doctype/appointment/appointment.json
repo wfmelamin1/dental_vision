@@ -1,0 +1,34 @@
+{
+  "name": "Appointment",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "format:APT-{YYYY}-{MM}-{#####}",
+  "title_field": "name",
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "patient", "fieldtype": "Link", "label": "Patient", "options": "Patient", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "patient_name", "fieldtype": "Data", "label": "Patient Name", "fetch_from": "patient.full_name", "read_only": 1, "in_list_view": 1},
+    {"fieldname": "provider", "fieldtype": "Link", "label": "Provider", "options": "Dental Provider", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "appointment_date", "fieldtype": "Date", "label": "Date", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "start_time", "fieldtype": "Time", "label": "Start Time", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "end_time", "fieldtype": "Time", "label": "End Time"},
+    {"fieldname": "duration_minutes", "fieldtype": "Int", "label": "Duration (min)", "default": 60},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "appointment_type", "fieldtype": "Select", "label": "Appointment Type",
+      "options": "New Patient Exam\nRecall / Hygiene\nRestoration\nOral Surgery\nEndodontics\nOrthodontics\nEmergency\nConsultation\nOther"},
+    {"fieldname": "appointment_status", "fieldtype": "Select", "label": "Status",
+      "options": "Scheduled\nConfirmed\nIn Chair\nCompleted\nNo Show\nCancelled\nRescheduled",
+      "default": "Scheduled", "in_list_view": 1},
+    {"fieldname": "operatory", "fieldtype": "Data", "label": "Operatory / Chair #"},
+    {"fieldname": "appointment_notes", "fieldtype": "Small Text", "label": "Notes / Planned Procedures"},
+    {"fieldname": "confirmation_sent", "fieldtype": "Check", "label": "Confirmation Sent"},
+    {"fieldname": "reminder_sent", "fieldtype": "Check", "label": "Reminder Sent"},
+    {"fieldname": "color_code", "fieldtype": "Color", "label": "Calendar Color"},
+    {"fieldname": "linked_encounter", "fieldtype": "Link", "label": "Clinical Encounter", "options": "Dental Encounter", "read_only": 1}
+  ],
+  "permissions": [
+    {"role": "Dentist", "read": 1, "write": 1, "create": 1},
+    {"role": "Dental Receptionist", "read": 1, "write": 1, "create": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

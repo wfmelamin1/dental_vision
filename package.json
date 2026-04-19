@@ -1,0 +1,8 @@
+{
+  "name": "dental_vision",
+  "version": "2.0.0",
+  "scripts": {
+    "build": "echo 'No frontend assets to build'"
+  },
+  "devDependencies": {}
+}

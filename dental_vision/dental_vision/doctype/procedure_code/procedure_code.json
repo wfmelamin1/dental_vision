@@ -1,0 +1,41 @@
+{
+  "name": "Procedure Code",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "field:cdt_code",
+  "title_field": "cdt_code",
+  "fields": [
+    {"fieldname": "cdt_code", "fieldtype": "Data", "label": "CDT Code", "reqd": 1, "unique": 1, "in_list_view": 1,
+      "description": "ADA Current Dental Terminology code, e.g. D0120, D2740"},
+    {"fieldname": "procedure_name", "fieldtype": "Data", "label": "Procedure Name", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "category", "fieldtype": "Select", "label": "Category", "in_list_view": 1,
+      "options": "Diagnostic\nPreventive\nRestorative\nEndodontics\nPeriodontics\nProsthodontics - Removable\nMaxillofacial Prosthetics\nImplant Services\nProsthodontics - Fixed\nOral & Maxillofacial Surgery\nOrthodontics\nAdjunctive General Services"},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "standard_fee", "fieldtype": "Currency", "label": "Standard Fee", "reqd": 1},
+    {"fieldname": "ucr_fee", "fieldtype": "Currency", "label": "UCR Fee (Usual, Customary & Reasonable)"},
+    {"fieldname": "linked_item", "fieldtype": "Link", "label": "ERPNext Item", "options": "Item",
+      "description": "Link to the ERPNext Item/Product for billing integration"},
+    {"fieldname": "description_section", "fieldtype": "Section Break", "label": "Description"},
+    {"fieldname": "full_description", "fieldtype": "Text", "label": "Full ADA Description"},
+    {"fieldname": "abbreviation", "fieldtype": "Data", "label": "Abbreviation (for chart display)", "in_list_view": 1},
+    {"fieldname": "billing_section", "fieldtype": "Section Break", "label": "Billing & Insurance"},
+    {"fieldname": "is_diagnostic", "fieldtype": "Check", "label": "Diagnostic"},
+    {"fieldname": "is_preventive", "fieldtype": "Check", "label": "Preventive"},
+    {"fieldname": "requires_tooth_number", "fieldtype": "Check", "label": "Requires Tooth #"},
+    {"fieldname": "requires_surface", "fieldtype": "Check", "label": "Requires Surface"},
+    {"fieldname": "requires_quadrant", "fieldtype": "Check", "label": "Requires Quadrant"},
+    {"fieldname": "requires_arch", "fieldtype": "Check", "label": "Requires Arch"},
+    {"fieldname": "column_break_2", "fieldtype": "Column Break"},
+    {"fieldname": "frequency_limitation", "fieldtype": "Data", "label": "Frequency Limitation",
+      "description": "e.g. 1 per 6 months per patient"},
+    {"fieldname": "age_limitation", "fieldtype": "Data", "label": "Age Limitation", "description": "e.g. Under 14 only"},
+    {"fieldname": "insurance_coverage_category", "fieldtype": "Select", "label": "Typical Insurance Category",
+      "options": "\nType I - Preventive (100%)\nType II - Basic Restorative (80%)\nType III - Major Restorative (50%)\nType IV - Orthodontics\nNot Covered"},
+    {"fieldname": "is_active", "fieldtype": "Check", "label": "Active", "default": 1}
+  ],
+  "permissions": [
+    {"role": "Dentist", "read": 1},
+    {"role": "Dental Receptionist", "read": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

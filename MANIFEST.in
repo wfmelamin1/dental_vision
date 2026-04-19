@@ -1,0 +1,1 @@
+recursive-include dental_vision *.json *.js *.jsx *.css *.html *.py *.md *.sql *.txt

@@ -1,0 +1,40 @@
+{
+  "name": "Dental Lab Case",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "format:LAB-{YYYY}-{#####}",
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "patient", "fieldtype": "Link", "label": "Patient", "options": "Patient", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "patient_name", "fieldtype": "Data", "label": "Patient Name", "fetch_from": "patient.full_name", "read_only": 1},
+    {"fieldname": "appointment", "fieldtype": "Link", "label": "Appointment", "options": "Appointment"},
+    {"fieldname": "provider", "fieldtype": "Link", "label": "Provider", "options": "Dental Provider"},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "lab_name", "fieldtype": "Data", "label": "Laboratory Name", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "case_type", "fieldtype": "Select", "label": "Case Type",
+      "options": "Crown\nBridge\nComplete Denture\nPartial Denture\nImplant Crown\nImplant Bridge\nVeneer\nInlay/Onlay\nAligner\nRetainer\nNight Guard\nOther",
+      "in_list_view": 1},
+    {"fieldname": "case_status", "fieldtype": "Select", "label": "Status",
+      "options": "Draft\nSent to Lab\nIn Fabrication\nReceived\nApproved\nRejected",
+      "default": "Draft", "in_list_view": 1},
+    {"fieldname": "dates_section", "fieldtype": "Section Break", "label": "Dates"},
+    {"fieldname": "date_sent", "fieldtype": "Date", "label": "Date Sent to Lab"},
+    {"fieldname": "date_due", "fieldtype": "Date", "label": "Due Date"},
+    {"fieldname": "date_received", "fieldtype": "Date", "label": "Date Received"},
+    {"fieldname": "column_break_2", "fieldtype": "Column Break"},
+    {"fieldname": "tooth_numbers", "fieldtype": "Data", "label": "Tooth Number(s)"},
+    {"fieldname": "shade", "fieldtype": "Data", "label": "Shade / Colour",
+      "description": "e.g. A2, B1, Vita shade"},
+    {"fieldname": "fee", "fieldtype": "Currency", "label": "Lab Fee"},
+    {"fieldname": "instructions_section", "fieldtype": "Section Break", "label": "Lab Instructions"},
+    {"fieldname": "lab_instructions", "fieldtype": "Text Editor", "label": "Instructions to Lab"},
+    {"fieldname": "rejection_reason", "fieldtype": "Small Text", "label": "Rejection Reason",
+      "depends_on": "eval:doc.case_status == 'Rejected'"}
+  ],
+  "permissions": [
+    {"role": "Dentist", "read": 1, "write": 1, "create": 1},
+    {"role": "Dental Receptionist", "read": 1, "write": 1},
+    {"role": "Dental Office Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

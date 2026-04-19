@@ -1,0 +1,172 @@
+{
+  "name": "Tooth",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "istable": 1,
+  "editable_grid": 1,
+  "fields": [
+    {
+      "fieldname": "tooth_number",
+      "fieldtype": "Select",
+      "label": "Tooth #",
+      "options": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM\nN\nO\nP\nQ\nR\nS\nT",
+      "reqd": 1,
+      "in_list_view": 1,
+      "description": "1-32 = Universal Numbering for adult teeth; A-T = Primary (deciduous) teeth"
+    },
+    {
+      "fieldname": "tooth_name",
+      "fieldtype": "Data",
+      "label": "Name",
+      "read_only": 1,
+      "in_list_view": 1,
+      "description": "e.g. Upper Right Central Incisor"
+    },
+    {
+      "fieldname": "tooth_type",
+      "fieldtype": "Select",
+      "label": "Type",
+      "options": "Adult\nPrimary",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "quadrant",
+      "fieldtype": "Select",
+      "label": "Quadrant",
+      "options": "\nUR\nUL\nLR\nLL",
+      "description": "Upper Right, Upper Left, Lower Right, Lower Left"
+    },
+    {
+      "fieldname": "tooth_class",
+      "fieldtype": "Select",
+      "label": "Classification",
+      "options": "\nIncisor\nCanine\nPremolar\nMolar\nWisdom Molar"
+    },
+    {
+      "fieldname": "overall_condition",
+      "fieldtype": "Select",
+      "label": "Overall Condition",
+      "options": "Healthy\nCaries\nFilled\nCrown\nMissing\nExtracted\nImplant\nRCT - Root Canal Treated\nBridge Abutment\nBridge Pontic\nVeneer\nOnlay\nInlay\nSealant\nFracture\nWatched",
+      "in_list_view": 1,
+      "default": "Healthy"
+    },
+    {
+      "fieldname": "surfaces_section",
+      "fieldtype": "Section Break",
+      "label": "Surface Conditions"
+    },
+    {
+      "fieldname": "mesial",
+      "fieldtype": "Select",
+      "label": "Mesial (M)",
+      "options": "\nHealthy\nCaries\nFilling - Composite\nFilling - Amalgam\nFilling - Gold\nFilling - Ceramic\nOpen Margin\nOverhang\nFracture\nRecurrent Decay"
+    },
+    {
+      "fieldname": "distal",
+      "fieldtype": "Select",
+      "label": "Distal (D)",
+      "options": "\nHealthy\nCaries\nFilling - Composite\nFilling - Amalgam\nFilling - Gold\nFilling - Ceramic\nOpen Margin\nOverhang\nFracture\nRecurrent Decay"
+    },
+    {
+      "fieldname": "occlusal_incisal",
+      "fieldtype": "Select",
+      "label": "Occlusal / Incisal (O/I)",
+      "options": "\nHealthy\nCaries\nFilling - Composite\nFilling - Amalgam\nFilling - Gold\nFilling - Ceramic\nOpen Margin\nOverhang\nFracture\nRecurrent Decay"
+    },
+    {
+      "fieldname": "buccal_facial",
+      "fieldtype": "Select",
+      "label": "Buccal / Facial (B/F)",
+      "options": "\nHealthy\nCaries\nFilling - Composite\nFilling - Amalgam\nFilling - Gold\nFilling - Ceramic\nOpen Margin\nOverhang\nFracture\nRecurrent Decay"
+    },
+    {
+      "fieldname": "lingual_palatal",
+      "fieldtype": "Select",
+      "label": "Lingual / Palatal (L/P)",
+      "options": "\nHealthy\nCaries\nFilling - Composite\nFilling - Amalgam\nFilling - Gold\nFilling - Ceramic\nOpen Margin\nOverhang\nFracture\nRecurrent Decay"
+    },
+    {
+      "fieldname": "perio_section",
+      "fieldtype": "Section Break",
+      "label": "Periodontal Data"
+    },
+    {
+      "fieldname": "mobility",
+      "fieldtype": "Select",
+      "label": "Mobility",
+      "options": "\n0 - None\n1 - Slight (<1mm)\n2 - Moderate (1-2mm)\n3 - Severe (>2mm or depressible)"
+    },
+    {
+      "fieldname": "furcation",
+      "fieldtype": "Select",
+      "label": "Furcation",
+      "options": "\nN/A\nClass I\nClass II\nClass III"
+    },
+    {
+      "fieldname": "recession_mm",
+      "fieldtype": "Float",
+      "label": "Recession (mm)"
+    },
+    {
+      "fieldname": "probing_depths",
+      "fieldtype": "Data",
+      "label": "Probing Depths (mm)",
+      "description": "6 readings: MB-B-DB-ML-L-DL e.g. 2,3,2,3,2,3"
+    },
+    {
+      "fieldname": "bleeding_on_probing",
+      "fieldtype": "Check",
+      "label": "Bleeding on Probing (BOP)"
+    },
+    {
+      "fieldname": "additional_section",
+      "fieldtype": "Section Break",
+      "label": "Additional Notes"
+    },
+    {
+      "fieldname": "implant_brand",
+      "fieldtype": "Data",
+      "label": "Implant Brand / System",
+      "depends_on": "eval:doc.overall_condition == 'Implant'"
+    },
+    {
+      "fieldname": "implant_date",
+      "fieldtype": "Date",
+      "label": "Implant Placement Date",
+      "depends_on": "eval:doc.overall_condition == 'Implant'"
+    },
+    {
+      "fieldname": "extraction_date",
+      "fieldtype": "Date",
+      "label": "Extraction Date",
+      "depends_on": "eval:['Missing','Extracted'].includes(doc.overall_condition)"
+    },
+    {
+      "fieldname": "tooth_notes",
+      "fieldtype": "Small Text",
+      "label": "Clinical Notes for this Tooth"
+    },
+    {
+      "fieldname": "svg_state_json",
+      "fieldtype": "Code",
+      "label": "SVG State (JSON)",
+      "options": "JSON",
+      "read_only": 1,
+      "description": "Serialized rendering state used by the Odontogram React component"
+    },
+    {
+      "fieldname": "last_updated_by",
+      "fieldtype": "Link",
+      "label": "Last Updated By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_updated_on",
+      "fieldtype": "Datetime",
+      "label": "Last Updated On",
+      "read_only": 1
+    }
+  ],
+  "permissions": []
+}

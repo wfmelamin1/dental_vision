@@ -1,0 +1,30 @@
+{
+  "name": "Treatment Plan",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "format:TP-{YYYY}-{#####}",
+  "is_submittable": 1,
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "patient", "fieldtype": "Link", "label": "Patient", "options": "Patient", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "patient_name", "fieldtype": "Data", "label": "Patient Name", "fetch_from": "patient.full_name", "read_only": 1},
+    {"fieldname": "plan_date", "fieldtype": "Date", "label": "Plan Date", "default": "Today", "reqd": 1},
+    {"fieldname": "provider", "fieldtype": "Link", "label": "Provider", "options": "Dental Provider", "reqd": 1},
+    {"fieldname": "status", "fieldtype": "Select", "label": "Status",
+      "options": "Draft\nPresented to Patient\nPatient Accepted\nIn Progress\nCompleted\nDeclined",
+      "default": "Draft", "in_list_view": 1},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "plan_notes", "fieldtype": "Small Text", "label": "Plan Notes"},
+    {"fieldname": "patient_signature_date", "fieldtype": "Date", "label": "Patient Accepted / Signature Date"},
+    {"fieldname": "total_estimated_fee", "fieldtype": "Currency", "label": "Total Estimated Fee", "read_only": 1},
+    {"fieldname": "total_insurance_estimate", "fieldtype": "Currency", "label": "Total Insurance Estimate", "read_only": 1},
+    {"fieldname": "total_patient_estimate", "fieldtype": "Currency", "label": "Total Patient Responsibility", "read_only": 1},
+    {"fieldname": "procedures_section", "fieldtype": "Section Break", "label": "Planned Procedures"},
+    {"fieldname": "planned_procedures", "fieldtype": "Table", "label": "Planned Procedures", "options": "Encounter Procedure"}
+  ],
+  "permissions": [
+    {"role": "Dentist", "read": 1, "write": 1, "create": 1, "submit": 1},
+    {"role": "Dental Receptionist", "read": 1, "write": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1}
+  ]
+}

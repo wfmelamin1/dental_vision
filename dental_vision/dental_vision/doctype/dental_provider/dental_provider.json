@@ -1,0 +1,107 @@
+{
+  "name": "Dental Provider",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "field:provider_id",
+  "fields": [
+    {
+      "fieldname": "provider_id",
+      "fieldtype": "Data",
+      "label": "Provider ID",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "first_name",
+      "fieldtype": "Data",
+      "label": "First Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "last_name",
+      "fieldtype": "Data",
+      "label": "Last Name",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "title",
+      "fieldtype": "Select",
+      "label": "Title",
+      "options": "\nDr.\nDMD\nDDS\nRDH\nDA\nDO"
+    },
+    {
+      "fieldname": "specialty",
+      "fieldtype": "Select",
+      "label": "Specialty",
+      "in_list_view": 1,
+      "options": "General Dentistry\nOral Surgery\nOrthodontics\nEndodontics\nPeriodontics\nProsthodontics\nPediatric Dentistry\nOral Medicine\nDental Hygiene\nDental Assistant"
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "npi_number",
+      "fieldtype": "Data",
+      "label": "NPI Number"
+    },
+    {
+      "fieldname": "dea_number",
+      "fieldtype": "Data",
+      "label": "DEA Number"
+    },
+    {
+      "fieldname": "state_license",
+      "fieldtype": "Data",
+      "label": "State License #"
+    },
+    {
+      "fieldname": "tax_id_or_ssn",
+      "fieldtype": "Password",
+      "label": "Tax ID / SSN (Encrypted)"
+    },
+    {
+      "fieldname": "linked_user",
+      "fieldtype": "Link",
+      "label": "Frappe User",
+      "options": "User"
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email",
+      "options": "Email"
+    },
+    {
+      "fieldname": "phone",
+      "fieldtype": "Data",
+      "label": "Phone"
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1
+    },
+    {
+      "fieldname": "schedule_color",
+      "fieldtype": "Color",
+      "label": "Calendar Color"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1
+    },
+    {
+      "role": "Dental Receptionist",
+      "read": 1
+    }
+  ]
+}

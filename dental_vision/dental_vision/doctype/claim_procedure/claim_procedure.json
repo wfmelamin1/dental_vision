@@ -1,0 +1,20 @@
+{
+  "name": "Claim Procedure",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "istable": 1,
+  "editable_grid": 1,
+  "fields": [
+    {"fieldname": "procedure_code", "fieldtype": "Link", "label": "CDT Code", "options": "Procedure Code", "in_list_view": 1, "reqd": 1},
+    {"fieldname": "procedure_name", "fieldtype": "Data", "label": "Description", "in_list_view": 1},
+    {"fieldname": "tooth_number", "fieldtype": "Data", "label": "Tooth #", "in_list_view": 1},
+    {"fieldname": "tooth_surface", "fieldtype": "Data", "label": "Surface"},
+    {"fieldname": "col1", "fieldtype": "Column Break"},
+    {"fieldname": "billed_amount", "fieldtype": "Currency", "label": "Billed Amount", "in_list_view": 1},
+    {"fieldname": "allowed_amount", "fieldtype": "Currency", "label": "Allowed Amount"},
+    {"fieldname": "insurance_payment", "fieldtype": "Currency", "label": "Insurance Payment", "in_list_view": 1},
+    {"fieldname": "write_off", "fieldtype": "Currency", "label": "Write-Off"},
+    {"fieldname": "deductible", "fieldtype": "Currency", "label": "Deductible Applied"},
+    {"fieldname": "patient_portion", "fieldtype": "Currency", "label": "Patient Portion", "in_list_view": 1}
+  ]
+}

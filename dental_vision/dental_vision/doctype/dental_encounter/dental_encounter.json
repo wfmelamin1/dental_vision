@@ -1,0 +1,338 @@
+{
+  "name": "Dental Encounter",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "naming_rule": "Expression",
+  "autoname": "format:ENC-{YYYY}-{MM}-{#####}",
+  "title_field": "name",
+  "track_changes": 1,
+  "track_seen": 1,
+  "fields": [
+    {
+      "fieldname": "header_section",
+      "fieldtype": "Section Break",
+      "label": "Encounter Header"
+    },
+    {
+      "fieldname": "patient",
+      "fieldtype": "Link",
+      "label": "Patient",
+      "options": "Patient",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "patient_name",
+      "fieldtype": "Data",
+      "label": "Patient Name",
+      "fetch_from": "patient.full_name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "encounter_date",
+      "fieldtype": "Date",
+      "label": "Encounter Date",
+      "reqd": 1,
+      "default": "Today",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "encounter_time",
+      "fieldtype": "Time",
+      "label": "Start Time"
+    },
+    {
+      "fieldname": "column_break_h",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "provider",
+      "fieldtype": "Link",
+      "label": "Treating Provider",
+      "options": "Dental Provider",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "hygienist",
+      "fieldtype": "Link",
+      "label": "Hygienist",
+      "options": "Dental Provider"
+    },
+    {
+      "fieldname": "appointment",
+      "fieldtype": "Link",
+      "label": "Linked Appointment",
+      "options": "Appointment"
+    },
+    {
+      "fieldname": "encounter_status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Draft\nIn Progress\nCompleted\nBilled\nCancelled",
+      "default": "Draft",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "clinical_section",
+      "fieldtype": "Section Break",
+      "label": "Clinical Findings"
+    },
+    {
+      "fieldname": "chief_complaint",
+      "fieldtype": "Small Text",
+      "label": "Chief Complaint"
+    },
+    {
+      "fieldname": "clinical_notes",
+      "fieldtype": "Text Editor",
+      "label": "Clinical Notes / SOAP"
+    },
+    {
+      "fieldname": "column_break_c",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "vital_signs_section",
+      "fieldtype": "Section Break",
+      "label": "Vital Signs"
+    },
+    {
+      "fieldname": "blood_pressure",
+      "fieldtype": "Data",
+      "label": "Blood Pressure (mmHg)",
+      "description": "e.g. 120/80"
+    },
+    {
+      "fieldname": "pulse_rate",
+      "fieldtype": "Int",
+      "label": "Pulse Rate (bpm)"
+    },
+    {
+      "fieldname": "respiratory_rate",
+      "fieldtype": "Int",
+      "label": "Respiratory Rate"
+    },
+    {
+      "fieldname": "temperature",
+      "fieldtype": "Float",
+      "label": "Temperature (\u00b0F)"
+    },
+    {
+      "fieldname": "oxygen_saturation",
+      "fieldtype": "Float",
+      "label": "O2 Saturation (%)"
+    },
+    {
+      "fieldname": "procedures_section",
+      "fieldtype": "Section Break",
+      "label": "Procedures Performed"
+    },
+    {
+      "fieldname": "procedures",
+      "fieldtype": "Table",
+      "label": "Procedures",
+      "options": "Encounter Procedure",
+      "description": "Link to CDT codes. Completing a procedure auto-creates a Sales Invoice line."
+    },
+    {
+      "fieldname": "odontogram_section",
+      "fieldtype": "Section Break",
+      "label": "Odontogram (Tooth Chart)"
+    },
+    {
+      "fieldname": "teeth",
+      "fieldtype": "Table",
+      "label": "Tooth Chart",
+      "options": "Tooth"
+    },
+    {
+      "fieldname": "odontogram_snapshot",
+      "fieldtype": "Attach",
+      "label": "Odontogram Snapshot (PNG/SVG)",
+      "description": "Auto-saved visual snapshot of chart at time of encounter"
+    },
+    {
+      "fieldname": "perio_section",
+      "fieldtype": "Section Break",
+      "label": "Periodontal Charting"
+    },
+    {
+      "fieldname": "perio_chart_date",
+      "fieldtype": "Date",
+      "label": "Perio Chart Date"
+    },
+    {
+      "fieldname": "perio_notes",
+      "fieldtype": "Small Text",
+      "label": "Periodontal Notes"
+    },
+    {
+      "fieldname": "gingival_description",
+      "fieldtype": "Select",
+      "label": "Gingival Description",
+      "options": "\nHealthy\nGingivitis\nEarly Periodontitis\nModerate Periodontitis\nSevere Periodontitis"
+    },
+    {
+      "fieldname": "plaque_score",
+      "fieldtype": "Float",
+      "label": "Plaque Score (%)"
+    },
+    {
+      "fieldname": "bleeding_score",
+      "fieldtype": "Float",
+      "label": "Bleeding Score (%)"
+    },
+    {
+      "fieldname": "xray_section",
+      "fieldtype": "Section Break",
+      "label": "Radiographs / X-Rays"
+    },
+    {
+      "fieldname": "xray_type",
+      "fieldtype": "Select",
+      "label": "X-Ray Type",
+      "options": "\nNone\nFull Mouth Series (FMX)\nPanoramic (PAN)\nBitewing (BW)\nPeriapical (PA)\nCBCT 3D\nCephalometric"
+    },
+    {
+      "fieldname": "xray_notes",
+      "fieldtype": "Small Text",
+      "label": "Radiograph Findings"
+    },
+    {
+      "fieldname": "xray_attachments",
+      "fieldtype": "Attach",
+      "label": "X-Ray / Radiograph Files",
+      "description": "Attach radiograph images or documents"
+    },
+    {
+      "fieldname": "anesthesia_section",
+      "fieldtype": "Section Break",
+      "label": "Anesthesia"
+    },
+    {
+      "fieldname": "anesthesia_type",
+      "fieldtype": "Select",
+      "label": "Anesthesia Type",
+      "options": "\nNone\nTopical Only\nLocal Infiltration\nBlock\nNitrous Oxide\nIV Sedation\nGeneral Anesthesia"
+    },
+    {
+      "fieldname": "anesthesia_drug",
+      "fieldtype": "Data",
+      "label": "Drug / Carpule"
+    },
+    {
+      "fieldname": "anesthesia_dosage",
+      "fieldtype": "Data",
+      "label": "Dosage"
+    },
+    {
+      "fieldname": "anesthesia_notes",
+      "fieldtype": "Small Text",
+      "label": "Anesthesia Notes"
+    },
+    {
+      "fieldname": "billing_section",
+      "fieldtype": "Section Break",
+      "label": "Billing"
+    },
+    {
+      "fieldname": "sales_invoice",
+      "fieldtype": "Link",
+      "label": "Sales Invoice",
+      "options": "Sales Invoice",
+      "read_only": 1
+    },
+    {
+      "fieldname": "insurance_claim",
+      "fieldtype": "Link",
+      "label": "Insurance Claim",
+      "options": "Insurance Claim",
+      "read_only": 1
+    },
+    {
+      "fieldname": "total_fee",
+      "fieldtype": "Currency",
+      "label": "Total Fee",
+      "read_only": 1
+    },
+    {
+      "fieldname": "patient_portion",
+      "fieldtype": "Currency",
+      "label": "Patient Portion",
+      "read_only": 1
+    },
+    {
+      "fieldname": "insurance_portion",
+      "fieldtype": "Currency",
+      "label": "Insurance Portion",
+      "read_only": 1
+    },
+    {
+      "fieldname": "referral_section",
+      "fieldtype": "Section Break",
+      "label": "Referrals"
+    },
+    {
+      "fieldname": "referral_required",
+      "fieldtype": "Check",
+      "label": "Referral Required"
+    },
+    {
+      "fieldname": "referral_to",
+      "fieldtype": "Data",
+      "label": "Refer To (Specialist)",
+      "depends_on": "eval:doc.referral_required"
+    },
+    {
+      "fieldname": "referral_reason",
+      "fieldtype": "Small Text",
+      "label": "Referral Reason",
+      "depends_on": "eval:doc.referral_required"
+    },
+    {
+      "fieldname": "consent_section",
+      "fieldtype": "Section Break",
+      "label": "Consent"
+    },
+    {
+      "fieldname": "informed_consent_obtained",
+      "fieldtype": "Check",
+      "label": "Informed Consent Obtained"
+    },
+    {
+      "fieldname": "consent_notes",
+      "fieldtype": "Small Text",
+      "label": "Consent Notes"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "Dentist",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "submit": 1
+    },
+    {
+      "role": "Dental Hygienist",
+      "read": 1,
+      "write": 1,
+      "create": 1
+    },
+    {
+      "role": "Dental Receptionist",
+      "read": 1
+    },
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1
+    }
+  ],
+  "is_submittable": 1
+}

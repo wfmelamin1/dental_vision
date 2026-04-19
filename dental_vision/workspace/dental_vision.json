@@ -1,0 +1,196 @@
+{
+  "name": "Dental Vision",
+  "module": "Dental Vision",
+  "doctype": "Workspace",
+  "label": "Dental Vision",
+  "title": "Dental Vision",
+  "icon": "tooth",
+  "indicator_color": "blue",
+  "is_standard": 1,
+  "restrict_to_domain": "",
+  "roles": [
+    {"role": "Dentist"},
+    {"role": "Dental Hygienist"},
+    {"role": "Dental Receptionist"},
+    {"role": "Dental Billing"},
+    {"role": "Dental Office Manager"}
+  ],
+  "links": [
+    {
+      "label": "Patients",
+      "type": "Card Break",
+      "icon": "users"
+    },
+    {
+      "label": "Patient",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Patient",
+      "onboard": 1,
+      "icon": "user"
+    },
+    {
+      "label": "Dental Tooth Chart",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Dental Tooth Chart",
+      "icon": "activity"
+    },
+    {
+      "label": "Scheduling",
+      "type": "Card Break",
+      "icon": "calendar"
+    },
+    {
+      "label": "Appointment",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Appointment",
+      "onboard": 1,
+      "icon": "calendar"
+    },
+    {
+      "label": "Dental Operatory",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Dental Operatory",
+      "icon": "map-pin"
+    },
+    {
+      "label": "Clinical",
+      "type": "Card Break",
+      "icon": "activity"
+    },
+    {
+      "label": "Dental Encounter",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Dental Encounter",
+      "onboard": 1,
+      "icon": "file-text"
+    },
+    {
+      "label": "Dental Procedure",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Dental Procedure",
+      "icon": "tool"
+    },
+    {
+      "label": "Dental Perio Exam",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Dental Perio Exam",
+      "icon": "bar-chart-2"
+    },
+    {
+      "label": "Treatment",
+      "type": "Card Break",
+      "icon": "clipboard"
+    },
+    {
+      "label": "Treatment Plan",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Treatment Plan",
+      "onboard": 1,
+      "icon": "clipboard"
+    },
+    {
+      "label": "Dental Lab Case",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Dental Lab Case",
+      "icon": "package"
+    },
+    {
+      "label": "Billing",
+      "type": "Card Break",
+      "icon": "dollar-sign"
+    },
+    {
+      "label": "Insurance Claim",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Insurance Claim",
+      "icon": "shield"
+    },
+    {
+      "label": "Sales Invoice",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Sales Invoice",
+      "icon": "file"
+    },
+    {
+      "label": "Payment Entry",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Payment Entry",
+      "icon": "credit-card"
+    },
+    {
+      "label": "Setup",
+      "type": "Card Break",
+      "icon": "settings"
+    },
+    {
+      "label": "Procedure Code",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Procedure Code",
+      "icon": "list"
+    },
+    {
+      "label": "Dental Provider",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Dental Provider",
+      "icon": "user-check"
+    },
+    {
+      "label": "Dental Operatory",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Dental Operatory",
+      "icon": "map-pin"
+    },
+    {
+      "label": "Dental Image Category",
+      "type": "Link",
+      "link_type": "DocType",
+      "link_to": "Dental Image Category",
+      "icon": "image"
+    }
+  ],
+  "shortcuts": [
+    {
+      "label": "New Patient",
+      "link_to": "Patient",
+      "type": "DocType",
+      "color": "blue",
+      "icon": "user-plus"
+    },
+    {
+      "label": "New Appointment",
+      "link_to": "Appointment",
+      "type": "DocType",
+      "color": "green",
+      "icon": "calendar"
+    },
+    {
+      "label": "New Encounter",
+      "link_to": "Dental Encounter",
+      "type": "DocType",
+      "color": "orange",
+      "icon": "file-text"
+    },
+    {
+      "label": "New Procedure",
+      "link_to": "Dental Procedure",
+      "type": "DocType",
+      "color": "purple",
+      "icon": "tool"
+    }
+  ]
+}

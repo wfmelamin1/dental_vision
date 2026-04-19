@@ -1,0 +1,39 @@
+{
+  "name": "Insurance Claim",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "format:CLM-{YYYY}-{#####}",
+  "is_submittable": 1,
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "patient", "fieldtype": "Link", "label": "Patient", "options": "Patient", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "patient_name", "fieldtype": "Data", "label": "Patient Name", "fetch_from": "patient.full_name", "read_only": 1},
+    {"fieldname": "dental_encounter", "fieldtype": "Link", "label": "Dental Encounter", "options": "Dental Encounter", "reqd": 1},
+    {"fieldname": "date_of_service", "fieldtype": "Date", "label": "Date of Service", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "insurance_provider", "fieldtype": "Link", "label": "Insurance Provider", "options": "Insurance Provider", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "insurance_member_id", "fieldtype": "Data", "label": "Member ID", "reqd": 1},
+    {"fieldname": "group_number", "fieldtype": "Data", "label": "Group #"},
+    {"fieldname": "provider", "fieldtype": "Link", "label": "Treating Provider", "options": "Dental Provider"},
+    {"fieldname": "claim_status", "fieldtype": "Select", "label": "Claim Status",
+      "options": "Draft\nSubmitted\nPending\nPartially Paid\nPaid\nDenied\nAppeal Filed\nWrite-off",
+      "default": "Draft", "in_list_view": 1},
+    {"fieldname": "submission_date", "fieldtype": "Date", "label": "Submission Date"},
+    {"fieldname": "procedures_section", "fieldtype": "Section Break", "label": "Procedures on Claim"},
+    {"fieldname": "claim_procedures", "fieldtype": "Table", "label": "Procedures", "options": "Claim Procedure"},
+    {"fieldname": "financials_section", "fieldtype": "Section Break", "label": "Financials"},
+    {"fieldname": "total_billed", "fieldtype": "Currency", "label": "Total Billed", "read_only": 1},
+    {"fieldname": "total_allowed", "fieldtype": "Currency", "label": "Total Allowed by Insurance"},
+    {"fieldname": "insurance_paid", "fieldtype": "Currency", "label": "Insurance Paid"},
+    {"fieldname": "patient_responsibility", "fieldtype": "Currency", "label": "Patient Responsibility"},
+    {"fieldname": "write_off_amount", "fieldtype": "Currency", "label": "Write-Off Amount"},
+    {"fieldname": "notes_section", "fieldtype": "Section Break", "label": "Notes"},
+    {"fieldname": "denial_reason", "fieldtype": "Small Text", "label": "Denial / Adjustment Reason"},
+    {"fieldname": "claim_notes", "fieldtype": "Small Text", "label": "Internal Notes"}
+  ],
+  "permissions": [
+    {"role": "Dental Receptionist", "read": 1, "write": 1, "create": 1},
+    {"role": "Dental Admin", "read": 1, "write": 1, "create": 1, "submit": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1}
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Dental Operatory",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "field:operatory_name",
+  "fields": [
+    {"fieldname": "operatory_name", "fieldtype": "Data", "label": "Operatory Name", "reqd": 1, "in_list_view": 1, "description": "e.g. Op1-General, Op2-Ortho, Op3-Hygiene"},
+    {"fieldname": "operatory_abbr", "fieldtype": "Data", "label": "Abbreviation", "in_list_view": 1, "description": "Short label shown on appointment grid"},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "default_provider", "fieldtype": "Link", "label": "Default Provider", "options": "Dental Provider"},
+    {"fieldname": "is_hygiene", "fieldtype": "Check", "label": "Hygiene Operatory", "default": 0},
+    {"fieldname": "is_active", "fieldtype": "Check", "label": "Active", "default": 1, "in_list_view": 1},
+    {"fieldname": "display_order", "fieldtype": "Int", "label": "Display Order", "description": "Column order on appointment schedule grid"},
+    {"fieldname": "color_code", "fieldtype": "Color", "label": "Calendar Color"},
+    {"fieldname": "notes_section", "fieldtype": "Section Break", "label": "Notes"},
+    {"fieldname": "notes", "fieldtype": "Small Text", "label": "Notes"}
+  ],
+  "permissions": [
+    {"role": "Dentist", "read": 1},
+    {"role": "Dental Receptionist", "read": 1, "write": 1},
+    {"role": "Dental Office Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

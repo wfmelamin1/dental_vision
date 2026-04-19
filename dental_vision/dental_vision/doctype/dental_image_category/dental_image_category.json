@@ -1,0 +1,18 @@
+{
+  "name": "Dental Image Category",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "field:category_name",
+  "fields": [
+    {"fieldname": "category_name", "fieldtype": "Data", "label": "Category Name", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "category_type", "fieldtype": "Select", "label": "Type", "in_list_view": 1,
+      "options": "Radiograph\nPhotograph\nConsent Form\nLab Result\nReferral Letter\nMedical Report\nOther"},
+    {"fieldname": "is_clinical", "fieldtype": "Check", "label": "Clinical Document", "default": 1},
+    {"fieldname": "description", "fieldtype": "Small Text", "label": "Description"},
+    {"fieldname": "is_active", "fieldtype": "Check", "label": "Active", "default": 1}
+  ],
+  "permissions": [
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1},
+    {"role": "Dental Office Manager", "read": 1, "write": 1, "create": 1}
+  ]
+}

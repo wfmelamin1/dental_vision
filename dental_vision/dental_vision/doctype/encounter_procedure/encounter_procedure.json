@@ -1,0 +1,28 @@
+{
+  "name": "Encounter Procedure",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "istable": 1,
+  "editable_grid": 1,
+  "fields": [
+    {"fieldname": "procedure_code", "fieldtype": "Link", "label": "CDT Code", "options": "Procedure Code", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "procedure_name", "fieldtype": "Data", "label": "Description", "fetch_from": "procedure_code.procedure_name", "read_only": 1, "in_list_view": 1},
+    {"fieldname": "tooth_number", "fieldtype": "Data", "label": "Tooth #", "in_list_view": 1},
+    {"fieldname": "surface", "fieldtype": "Data", "label": "Surfaces", "in_list_view": 1, "description": "e.g. MOD, B, MO"},
+    {"fieldname": "quadrant", "fieldtype": "Select", "label": "Quadrant", "options": "\nUR\nUL\nLR\nLL"},
+    {"fieldname": "arch", "fieldtype": "Select", "label": "Arch", "options": "\nMaxillary\nMandibular"},
+    {"fieldname": "status", "fieldtype": "Select", "label": "Status",
+      "options": "Treatment Planned\nRecommended\nIn Progress\nCompleted\nRejected by Patient\nReferred Out\nDeleted",
+      "default": "Treatment Planned", "in_list_view": 1},
+    {"fieldname": "date_completed", "fieldtype": "Date", "label": "Date Completed"},
+    {"fieldname": "provider", "fieldtype": "Link", "label": "Provider", "options": "Dental Provider"},
+    {"fieldname": "fee", "fieldtype": "Currency", "label": "Fee", "in_list_view": 1},
+    {"fieldname": "discount", "fieldtype": "Currency", "label": "Discount"},
+    {"fieldname": "insurance_estimate", "fieldtype": "Currency", "label": "Insurance Est."},
+    {"fieldname": "patient_estimate", "fieldtype": "Currency", "label": "Patient Est."},
+    {"fieldname": "priority", "fieldtype": "Select", "label": "Priority", "options": "\n1 - Urgent\n2 - High\n3 - Medium\n4 - Low"},
+    {"fieldname": "procedure_notes", "fieldtype": "Small Text", "label": "Notes"},
+    {"fieldname": "billed_to_invoice", "fieldtype": "Check", "label": "Billed", "read_only": 1},
+    {"fieldname": "invoice_row_ref", "fieldtype": "Data", "label": "Invoice Row Ref", "read_only": 1}
+  ]
+}

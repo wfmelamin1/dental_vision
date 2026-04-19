@@ -1,0 +1,32 @@
+{
+  "name": "Dental Tooth Chart",
+  "module": "Dental Vision",
+  "doctype": "DocType",
+  "autoname": "format:TC-{patient}-{#}",
+  "track_changes": 1,
+  "fields": [
+    {"fieldname": "patient", "fieldtype": "Link", "label": "Patient", "options": "Patient", "reqd": 1, "in_list_view": 1},
+    {"fieldname": "patient_name", "fieldtype": "Data", "label": "Patient Name", "fetch_from": "patient.full_name", "read_only": 1},
+    {"fieldname": "chart_date", "fieldtype": "Date", "label": "Chart Date", "default": "Today", "in_list_view": 1},
+    {"fieldname": "provider", "fieldtype": "Link", "label": "Provider", "options": "Dental Provider"},
+    {"fieldname": "column_break_1", "fieldtype": "Column Break"},
+    {"fieldname": "numbering_system", "fieldtype": "Select", "label": "Numbering System",
+      "options": "Universal (ADA)\nFDI / ISO\nPalmer",
+      "default": "FDI / ISO",
+      "description": "FDI recommended for Elrazi University Clinic"},
+    {"fieldname": "chart_type", "fieldtype": "Select", "label": "Chart Type",
+      "options": "Adult (Permanent)\nChild (Primary)\nMixed"},
+    {"fieldname": "teeth_section", "fieldtype": "Section Break", "label": "Tooth Records"},
+    {"fieldname": "teeth", "fieldtype": "Table", "label": "Teeth", "options": "Tooth"},
+    {"fieldname": "notes_section", "fieldtype": "Section Break", "label": "Clinical Notes"},
+    {"fieldname": "chart_notes", "fieldtype": "Text Editor", "label": "Chart Notes"},
+    {"fieldname": "odontogram_image", "fieldtype": "Attach Image", "label": "Odontogram Snapshot"}
+  ],
+  "permissions": [
+    {"role": "Dentist", "read": 1, "write": 1, "create": 1},
+    {"role": "Dental Hygienist", "read": 1, "write": 1},
+    {"role": "Dental Receptionist", "read": 1},
+    {"role": "Dental Office Manager", "read": 1, "write": 1, "create": 1},
+    {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1}
+  ]
+}

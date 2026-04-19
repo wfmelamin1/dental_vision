@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hayat Specialist - Dental Vision</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/dental_vision/css/hayat_dental.css">
+</head>
+<body class="min-h-screen bg-slate-50 flex flex-col font-sans">
+  
+  <!-- Header Navigation -->
+  <nav class="h-20 w-full bg-white border-b border-slate-200 px-6 lg:px-12 flex items-center justify-between shrink-0">
+    <div class="flex items-center gap-3">
+      <div>
+        <h1 class="text-lg font-bold text-slate-900 leading-tight uppercase tracking-tight">Hayat Specialist Hospital, Kano</h1>
+        <p class="text-xs font-semibold text-blue-600 uppercase tracking-widest">Dental Vision Center</p>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#services" class="text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Our Services</a>
+      <a href="#faculty" class="text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Faculty</a>
+      <a href="/login" class="px-5 py-2.5 bg-slate-100 text-slate-900 text-sm font-bold rounded-md border border-slate-200 hover:bg-slate-200 transition-colors">Patient Login</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col lg:flex-row px-6 lg:px-12 py-10 gap-12 max-w-7xl mx-auto w-full">
+    <!-- Hero Content -->
+    <div class="flex-1 flex flex-col justify-center">
+      <span class="inline-block self-start px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+        Trusted Excellence in Kano
+      </span>
+      <h2 class="text-5xl lg:text-7xl font-extrabold text-slate-900 leading-tight tracking-tight mb-8">
+        Advanced<br>
+        <span class="text-blue-700">Dental Care</span><br>
+        Redefined.
+      </h2>
+      <p class="text-lg text-slate-600 leading-relaxed max-w-md mb-8">
+        Experience clinical precision and high-end aesthetics at Hayat Dental. We combine world-class expertise with the latest diagnostic technology.
+      </p>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+        <a href="#book" class="px-8 py-4 bg-blue-700 hover:bg-blue-800 transition-colors text-white font-bold rounded-xl shadow-lg text-center">
+          Book Your Appointment
+        </a>
+        <div class="text-sm font-semibold text-slate-500">Join 2,400+ Patients</div>
+      </div>
+    </div>
+
+    <!-- Booking Form -->
+    <div id="book" class="w-full lg:w-96 shrink-0 bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 flex flex-col">
+      <h3 class="text-xl font-bold text-slate-900 mb-1">Request Appointment</h3>
+      <p class="text-sm text-slate-500 mb-6">Enter your details and we will contact you to confirm.</p>
+      
+      <form action="/api/method/dental_vision.api.appointment.create_appointment" method="POST" class="flex flex-col gap-4">
+        <input type="hidden" name="csrf_token" value="{{ frappe.session.csrf_token }}">
+        
+        <div class="space-y-1.5">
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Patient Full Name</label>
+          <input type="text" name="patient_name" placeholder="Full name" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Phone</label>
+            <input type="tel" name="phone_number" placeholder="+234..." required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Preferred Date</label>
+            <input type="date" name="preferred_date" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+        
+        <div class="space-y-1.5">
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Service</label>
+          <select name="service" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select a service...</option>
+            <option value="Diagnostic">Diagnostic & Screening</option>
+            <option value="Preventive">Prophylaxis & Cleaning</option>
+            <option value="Restorative">Restorative Dentistry</option>
+            <option value="Endodontic">Root Canal Treatment</option>
+            <option value="Surgical">Oral Surgery</option>
+            <option value="Orthodontic">Orthodontic Services</option>
+            <option value="Periodontic">Periodontal Treatment</option>
+          </select>
+        </div>
+        
+        <div class="mt-2">
+          <button type="submit" class="w-full py-3.5 bg-slate-900 hover:bg-slate-800 transition-colors text-white font-bold rounded-lg uppercase tracking-widest text-xs">
+            Confirm Appointment Request
+          </button>
+        </div>
+        <p class="text-xs text-center text-slate-400 mt-1">
+          Your information is synced securely with the Dental Vision system.
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Facility Image -->
+  <section class="w-full px-6 lg:px-12 pb-12 bg-slate-50">
+    <div class="max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-2xl h-64 sm:h-80 lg:h-96 relative">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=80"
+           alt="Hayat Specialist Hospital Facility" class="w-full h-full object-cover" referrerpolicy="no-referrer"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent flex flex-col justify-end p-8 lg:p-12">
+        <h3 class="text-white text-3xl font-bold mb-2">State-of-the-art Dental Facilities</h3>
+        <p class="text-slate-200 max-w-xl text-lg">Equipped with the latest technology for the most comfortable, precise dental care in Kano.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Footer -->
+  <footer id="services" class="w-full bg-blue-900 px-6 lg:px-12 py-10 lg:h-36 flex items-center shrink-0">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+      <div>
+        <span class="text-blue-300 text-xs font-bold uppercase tracking-widest">01. Diagnostic</span>
+        <p class="text-white font-semibold mt-1">Advanced imaging and oral screenings</p>
+      </div>
+      <div>
+        <span class="text-blue-300 text-xs font-bold uppercase tracking-widest">02. Preventive</span>
+        <p class="text-white font-semibold mt-1">Root canal and cavity prevention</p>
+      </div>
+      <div>
+        <span class="text-blue-300 text-xs font-bold uppercase tracking-widest">03. Restorative</span>
+        <p class="text-white font-semibold mt-1">Premium crowns and bridge work</p>
+      </div>
+      <div>
+        <span class="text-blue-300 text-xs font-bold uppercase tracking-widest">04. Orthodontic</span>
+        <p class="text-white font-semibold mt-1">Aligners and surgical corrections</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
